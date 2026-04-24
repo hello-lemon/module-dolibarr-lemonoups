@@ -1,0 +1,24 @@
+# Module LemonOups — traductions FR
+
+Module500260Name = LemonOups
+Module500260Desc = Bouton "Annuler cette facture" en un clic
+
+# Bouton principal
+LemonOupsBtnAnnuler = Annuler cette facture
+LemonOupsBtnTooltipActive = Crée un avoir avec les mêmes lignes, le convertit en crédit et solde la facture en un clic
+LemonOupsConfirmAnnulation = Annuler la facture %s ?\n\nCette action va :\n- Créer un avoir avec les mêmes lignes\n- Valider l'avoir\n- Le convertir en crédit disponible\n- L'imputer sur la facture pour la solder\n\nLa facture passera en "Payée" et l'avoir sera consommé. Aucune suppression, tout reste tracé.
+
+# Messages de résultat
+LemonOupsAnnulationSuccess = Facture %s annulée : avoir %s créé et imputé, facture soldée.
+LemonOupsErrorAnnulation = Erreur lors de l'annulation. Aucune modification n'a été enregistrée. Vérifiez les logs pour le détail.
+LemonOupsErrorConditions = Conditions non réunies pour l'annulation en un clic. La facture a peut-être reçu un paiement entre-temps.
+
+# Raisons de grisage du bouton (infobulles)
+LemonOupsReasonNotStandard = Impossible : cette facture n'est pas de type standard (avoir, acompte, situation)
+LemonOupsReasonDraft = Impossible : la facture est en brouillon, supprimez-la directement
+LemonOupsReasonNotValidated = Impossible : la facture doit être validée
+LemonOupsReasonErasable = Impossible : cette facture peut être supprimée directement (bouton Supprimer)
+LemonOupsReasonAlreadyPaid = Impossible : la facture est déjà marquée comme payée
+LemonOupsReasonPartialPayment = Impossible : un paiement a déjà été enregistré, utilisez le workflow avoir classique
+LemonOupsReasonDepositUsed = Impossible : un acompte a déjà été imputé, utilisez le workflow avoir classique
+LemonOupsReasonCreditNoteUsed = Impossible : un avoir a déjà été imputé, utilisez le workflow avoir classique

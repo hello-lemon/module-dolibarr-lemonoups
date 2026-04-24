@@ -1,0 +1,21 @@
+# Module LemonOups — English translations
+
+Module500260Name = LemonOups
+Module500260Desc = One-click "Cancel this invoice" button
+
+LemonOupsBtnAnnuler = Cancel this invoice
+LemonOupsBtnTooltipActive = Creates a credit note with the same lines, converts it to a discount and settles the invoice in one click
+LemonOupsConfirmAnnulation = Cancel invoice %s?\n\nThis will:\n- Create a credit note with the same lines\n- Validate the credit note\n- Convert it to an available discount\n- Apply it to the invoice to settle it\n\nThe invoice will be marked "Paid" and the credit note consumed. Nothing is deleted, everything is traceable.
+
+LemonOupsAnnulationSuccess = Invoice %s cancelled: credit note %s created and applied, invoice settled.
+LemonOupsErrorAnnulation = Error during cancellation. No changes were saved. Check logs for details.
+LemonOupsErrorConditions = Conditions not met for one-click cancellation. A payment may have been recorded in the meantime.
+
+LemonOupsReasonNotStandard = Not possible: this invoice is not a standard one (credit note, deposit, situation)
+LemonOupsReasonDraft = Not possible: the invoice is a draft, delete it directly
+LemonOupsReasonNotValidated = Not possible: the invoice must be validated
+LemonOupsReasonErasable = Not possible: this invoice can be deleted directly (Delete button)
+LemonOupsReasonAlreadyPaid = Not possible: the invoice is already marked as paid
+LemonOupsReasonPartialPayment = Not possible: a payment has already been recorded, use the standard credit note workflow
+LemonOupsReasonDepositUsed = Not possible: a deposit has already been applied, use the standard credit note workflow
+LemonOupsReasonCreditNoteUsed = Not possible: a credit note has already been applied, use the standard credit note workflow
