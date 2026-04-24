@@ -62,6 +62,7 @@ print '<li><strong>'.$langs->trans("LemonOupsAboutSvc1Title").'</strong> : '.$la
 print '<li><strong>'.$langs->trans("LemonOupsAboutSvc2Title").'</strong> : '.$langs->trans("LemonOupsAboutSvc2Desc").'</li>';
 print '<li><strong>'.$langs->trans("LemonOupsAboutSvc3Title").'</strong> : '.$langs->trans("LemonOupsAboutSvc3Desc").'</li>';
 print '<li><strong>'.$langs->trans("LemonOupsAboutSvc4Title").'</strong> : '.$langs->trans("LemonOupsAboutSvc4Desc").'</li>';
+print '<li><strong>'.$langs->trans("LemonOupsAboutSvc5Title").'</strong> : '.$langs->trans("LemonOupsAboutSvc5Desc").'</li>';
 print '</ul>';
 print '<p style="margin:0;">';
 print '<a href="https://hellolemon.fr" target="_blank" rel="noopener" class="butAction" style="text-decoration:none;">'.$langs->trans("LemonOupsAboutCTA").'</a>';

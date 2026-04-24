@@ -48,7 +48,7 @@ class modLemonOups extends DolibarrModules
 		$this->descriptionlong = "Ajoute un bouton sur la fiche facture qui enchaîne automatiquement : création de l'avoir avec les mêmes lignes, validation, conversion en remise disponible, imputation sur la facture d'origine, marquage comme payée. Uniquement disponible pour les factures validées strictement sans paiement.";
 		$this->editor_name = 'Lemon';
 		$this->editor_url = 'https://hellolemon.fr';
-		$this->version = '0.3.0';
+		$this->version = '0.3.1';
 		$this->const_name = 'MAIN_MODULE_'.strtoupper($this->name);
 		$this->picto = 'bill';
 
