@@ -113,16 +113,36 @@ class ActionsLemonoups
 
 		$langs->load('lemonoups@lemonoups');
 
-		$url = $_SERVER["PHP_SELF"].'?id='.((int) $object->id).'&action=lemon_annuler&token='.newToken();
+		// L'action mute la DB : on force un POST plutôt qu'un simple lien GET,
+		// pour éviter les rejeux via image tag ou préchargement navigateur.
+		// On ne peut pas émettre un <form> ici (la fiche facture contient déjà un
+		// <form> parent, les formulaires imbriqués sont invalides en HTML et ignorés
+		// par le navigateur). Solution : un lien classique stylé butActionDelete,
+		// intercepté par un onclick qui crée un form POST dynamique et le soumet.
 		$confirm = $langs->trans('LemonOupsConfirmAnnulation', $object->ref);
+		$tooltip = $langs->trans('LemonOupsBtnTooltipActive');
+		$label = $langs->trans('LemonOupsBtnAnnuler');
+		$token = newToken();
+		$action = $_SERVER["PHP_SELF"];
+
+		$onclick =
+			"event.preventDefault();".
+			"if(!confirm('".dol_escape_js($confirm)."'))return false;".
+			"var f=document.createElement('form');".
+			"f.method='POST';f.action='".dol_escape_js($action)."';".
+			"var d={id:'".((int) $object->id)."',action:'lemon_annuler',token:'".dol_escape_js($token)."'};".
+			"for(var k in d){var i=document.createElement('input');i.type='hidden';i.name=k;i.value=d[k];f.appendChild(i);}".
+			"document.body.appendChild(f);f.submit();".
+			"return false;";
+
 		print dolGetButtonAction(
-			$langs->trans('LemonOupsBtnTooltipActive'),
-			$langs->trans('LemonOupsBtnAnnuler'),
+			$tooltip,
+			$label,
 			'delete',
-			$url,
+			'#',
 			'',
 			true,
-			array('attr' => array('onclick' => "return confirm('".dol_escape_js($confirm)."');"))
+			array('attr' => array('onclick' => $onclick))
 		);
 
 		return 0;
@@ -165,7 +185,8 @@ class ActionsLemonoups
 
 		$langs->load('lemonoups@lemonoups');
 
-		if (GETPOST('token', 'alpha') !== newToken()) {
+		// POST-only : le 3e paramètre de GETPOST force la lecture depuis $_POST uniquement.
+		if (GETPOST('token', 'alpha', 2) !== newToken()) {
 			setEventMessages($langs->trans('ErrorBadToken'), null, 'errors');
 			$action = '';
 			return 0;
@@ -286,21 +307,30 @@ class ActionsLemonoups
 				'multicurrency_total_tva', 'multicurrency_total_ttc',
 			);
 			foreach ($source->lines as $line) {
+				// Lignes spéciales (titres, sous-totaux — product_type >= 9) : ignorées.
+				// Elles ne seraient pas converties en discount par la suite et créeraient
+				// une incohérence entre total avoir et somme des discounts.
+				if ($line->product_type >= 9) {
+					continue;
+				}
 				if (method_exists($line, 'fetch_optionals')) {
 					$line->fetch_optionals();
 				}
-				$line->fk_facture = $avoir->id;
-				$line->fk_parent_line = 0;
+				// Clone pour ne pas muter les lignes de la facture source en mémoire
+				// (un hook tiers lisant $source->lines après coup verrait sinon des valeurs négatives).
+				$newline = clone $line;
+				$newline->fk_facture = $avoir->id;
+				$newline->fk_parent_line = 0;
 				foreach ($negatedFields as $field) {
-					$line->$field = -$line->$field;
+					$newline->$field = -$newline->$field;
 				}
-				$line->context['createcreditnotefrominvoice'] = 1;
-				$result = $line->insert(0, 1);
+				$newline->context['createcreditnotefrominvoice'] = 1;
+				$result = $newline->insert(0, 1);
 				if ($result < 0) {
-					$this->logError('insert line', $line);
+					$this->logError('insert line', $newline);
 					return null;
 				}
-				$avoir->lines[] = $line;
+				$avoir->lines[] = $newline;
 			}
 			$avoir->update_price(1);
 		}
