@@ -10,16 +10,16 @@ Une facture validée qui ne peut plus être supprimée (car d'autres factures on
 
 ## Fonctionnement
 
-En un clic, le module enchaîne en transaction atomique :
+**Un seul clic remplace 6 opérations manuelles** que vous feriez sinon dans Dolibarr, l'une après l'autre, en cliquant partout :
 
 1. Création d'un avoir avec les **mêmes lignes** que la facture d'origine (montants inversés)
-2. Validation de l'avoir (numérotation officielle)
-3. Conversion de l'avoir en remise disponible (une par taux de TVA)
-4. Marquage de l'avoir comme "payé" (= son crédit est consommé)
-5. Imputation du crédit sur la facture d'origine
-6. Marquage de la facture d'origine comme **"Payée"**
+2. Validation de l'avoir (numérotation officielle attribuée)
+3. Conversion de l'avoir en remise disponible (une entrée par taux de TVA)
+4. Marquage de l'avoir comme "payé" (= son crédit a été consommé)
+5. Imputation du crédit sur la facture d'origine (ligne de remise créée)
+6. Passage de la facture d'origine en **"Payée"**
 
-En cas d'erreur à n'importe quelle étape, la transaction est annulée (rollback). Aucune trace résiduelle.
+Si une étape échoue, toutes les précédentes sont **automatiquement défaites** : la base reste exactement dans l'état où elle était avant le clic. Aucun avoir orphelin, aucune remise fantôme.
 
 ## Conditions d'affichage du bouton
 
