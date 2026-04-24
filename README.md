@@ -1,8 +1,8 @@
-# LemonOups — bouton "Annuler cette facture" en un clic pour Dolibarr
+# LemonOups — bouton "Émettre un avoir et solder" en un clic pour Dolibarr
 
-Module Dolibarr qui ajoute un bouton **"Annuler cette facture"** sur la fiche d'une facture client validée **strictement sans aucun paiement**.
+Module Dolibarr qui ajoute un bouton **"Émettre un avoir et solder"** sur la fiche d'une facture client validée **strictement sans aucun paiement**.
 
-Ce bouton remplace le workflow natif Dolibarr en 5 clics sur 2 pages (Créer un avoir → cocher "mêmes lignes" → valider → convertir en crédit → utiliser le crédit) par **un seul clic**.
+Ce bouton **exécute automatiquement** le workflow natif Dolibarr (Créer un avoir → cocher "mêmes lignes" → valider → convertir en crédit → utiliser le crédit) qui demande normalement 5 clics sur 2 pages, en **un seul clic**.
 
 ## Cas d'usage
 

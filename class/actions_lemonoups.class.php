@@ -10,14 +10,14 @@
 /**
  *  \file       htdocs/lemonoups/class/actions_lemonoups.class.php
  *  \ingroup    lemonoups
- *  \brief      Hook invoicecard : bouton "Annuler cette facture" et handler associé.
+ *  \brief      Hook invoicecard : bouton "Émettre un avoir et solder" et handler associé.
  */
 
 /**
  *  Hooks du module LemonOups.
  *
  *  Fournit deux points d'accrochage sur la fiche facture :
- *    addMoreActionsButtons : affiche le bouton "Annuler cette facture"
+ *    addMoreActionsButtons : affiche le bouton "Émettre un avoir et solder"
  *                            (actif ou grisé selon l'état de la facture).
  *    doActions             : traite le clic sur le bouton via action=lemon_annuler.
  */
@@ -84,7 +84,7 @@ class ActionsLemonoups
 	}
 
 	/**
-	 *  Hook : ajoute le bouton "Annuler cette facture" en bas de la fiche facture.
+	 *  Hook : ajoute le bouton "Émettre un avoir et solder" en bas de la fiche facture.
 	 *
 	 *  @param  array            $parameters   Contextes et paramètres du hook
 	 *  @param  CommonObject     $object       Objet courant de la page (Facture)
@@ -119,9 +119,9 @@ class ActionsLemonoups
 		// <form> parent, les formulaires imbriqués sont invalides en HTML et ignorés
 		// par le navigateur). Solution : un lien classique stylé butActionDelete,
 		// intercepté par un onclick qui crée un form POST dynamique et le soumet.
-		$confirm = $langs->trans('LemonOupsConfirmAnnulation', $object->ref);
+		$confirm = $langs->trans('LemonOupsConfirmAction', $object->ref);
 		$tooltip = $langs->trans('LemonOupsBtnTooltipActive');
-		$label = $langs->trans('LemonOupsBtnAnnuler');
+		$label = $langs->trans('LemonOupsBtnLabel');
 		$token = newToken();
 		$action = $_SERVER["PHP_SELF"];
 
@@ -256,14 +256,14 @@ class ActionsLemonoups
 
 		if ($error) {
 			$db->rollback();
-			setEventMessages($langs->trans('LemonOupsErrorAnnulation'), null, 'errors');
+			setEventMessages($langs->trans('LemonOupsErrorAction'), null, 'errors');
 			$action = '';
 			return -1;
 		}
 
 		$db->commit();
 		setEventMessages(
-			$langs->trans('LemonOupsAnnulationSuccess', $object->ref, $avoir->ref),
+			$langs->trans('LemonOupsActionSuccess', $object->ref, $avoir->ref),
 			null,
 			'mesgs'
 		);

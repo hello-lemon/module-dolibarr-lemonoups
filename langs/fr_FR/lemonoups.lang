@@ -1,19 +1,19 @@
 # Module LemonOups — traductions FR
 
 Module500260Name = LemonOups
-Module500260Desc = Bouton "Annuler cette facture" en un clic
+Module500260Desc = Bouton "Émettre un avoir et solder" en un clic
 
 # Bouton principal
-LemonOupsBtnAnnuler = Annuler cette facture
-LemonOupsBtnTooltipActive = Crée un avoir avec les mêmes lignes, le convertit en crédit et solde la facture en un clic
-LemonOupsConfirmAnnulation = Annuler la facture %s ?\n\nCette action va :\n- Créer un avoir avec les mêmes lignes\n- Valider l'avoir\n- Le convertir en crédit disponible\n- L'imputer sur la facture pour la solder\n\nLa facture passera en "Payée" et l'avoir sera consommé. Aucune suppression, tout reste tracé.
+LemonOupsBtnLabel = Émettre un avoir et solder
+LemonOupsBtnTooltipActive = Crée un avoir du même montant et l'impute immédiatement pour solder la facture.
+LemonOupsConfirmAction = Émettre un avoir et solder la facture %s ?\n\nCette action va :\n- Créer un avoir avec les mêmes lignes\n- Valider l'avoir\n- Le convertir en crédit disponible\n- L'imputer sur la facture pour la solder\n\nLa facture passera en "Payée" et l'avoir sera consommé.
 
 # Messages de résultat
-LemonOupsAnnulationSuccess = Facture %s annulée : avoir %s créé et imputé, facture soldée.
-LemonOupsErrorAnnulation = Erreur lors de l'annulation. Aucune modification n'a été enregistrée. Vérifiez les logs pour le détail.
-LemonOupsErrorConditions = Conditions non réunies pour l'annulation en un clic. La facture a peut-être reçu un paiement entre-temps.
+LemonOupsActionSuccess = Avoir %2$s créé et imputé sur la facture %1$s. Facture soldée.
+LemonOupsErrorAction = Erreur pendant l'opération. Aucune modification n'a été enregistrée. Vérifiez les logs pour le détail.
+LemonOupsErrorConditions = Conditions non réunies. La facture a peut-être reçu un paiement entre-temps.
 
-# Raisons de grisage du bouton (infobulles)
+# Raisons de grisage du bouton (infobulles) — plus utilisées actuellement mais conservées pour référence future
 LemonOupsReasonNotStandard = Impossible : cette facture n'est pas de type standard (avoir, acompte, situation)
 LemonOupsReasonDraft = Impossible : la facture est en brouillon, supprimez-la directement
 LemonOupsReasonNotValidated = Impossible : la facture doit être validée
@@ -29,7 +29,7 @@ LemonOupsUpdateAvailable = Nouvelle version disponible
 LemonOupsUpdateAvailableMsg = la version %s est disponible sur GitHub (version installée : %s).
 LemonOupsUpdateSeeRelease = Voir les notes de version
 LemonOupsNoConfigTitle = Aucune configuration nécessaire
-LemonOupsNoConfigDesc = LemonOups fonctionne sans réglage : il suffit que le module soit activé. Le bouton "Annuler cette facture" apparaît automatiquement sur les factures validées strictement sans paiement.
+LemonOupsNoConfigDesc = LemonOups fonctionne sans réglage : il suffit que le module soit activé. Le bouton "Émettre un avoir et solder" apparaît automatiquement sur les factures validées strictement sans paiement.
 
 # Bloc "À propos de Lemon" (vitrine éditeur)
 LemonOupsAboutTitle = À propos de Lemon

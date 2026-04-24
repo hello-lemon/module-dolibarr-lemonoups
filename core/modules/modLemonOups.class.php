@@ -14,7 +14,7 @@
 
 /**
  *  \defgroup   lemonoups   Module LemonOups
- *  \brief      LemonOups : bouton "Annuler cette facture" en un clic
+ *  \brief      LemonOups : bouton "Émettre un avoir et solder" en un clic
  *  \file       htdocs/lemonoups/core/modules/modLemonOups.class.php
  */
 
@@ -23,7 +23,7 @@ include_once DOL_DOCUMENT_ROOT.'/core/modules/DolibarrModules.class.php';
 /**
  *  Descripteur du module LemonOups.
  *
- *  Ajoute un bouton "Annuler cette facture" sur la fiche d'une facture client
+ *  Ajoute un bouton "Émettre un avoir et solder" sur la fiche d'une facture client
  *  validée strictement sans aucun paiement, qui enchaîne en un clic :
  *    création de l'avoir avec les mêmes lignes → validation →
  *    conversion en remise disponible → imputation sur la facture d'origine →
@@ -44,11 +44,11 @@ class modLemonOups extends DolibarrModules
 		$this->family = "financial";
 		$this->module_position = '90';
 		$this->name = preg_replace('/^mod/i', '', get_class($this));
-		$this->description = "Bouton 'Annuler cette facture' en un clic sur les factures client";
+		$this->description = "Bouton 'Émettre un avoir et solder' en un clic sur les factures client";
 		$this->descriptionlong = "Ajoute un bouton sur la fiche facture qui enchaîne automatiquement : création de l'avoir avec les mêmes lignes, validation, conversion en remise disponible, imputation sur la facture d'origine, marquage comme payée. Uniquement disponible pour les factures validées strictement sans paiement.";
 		$this->editor_name = 'Lemon';
 		$this->editor_url = 'https://hellolemon.fr';
-		$this->version = '0.1.0';
+		$this->version = '0.3.0';
 		$this->const_name = 'MAIN_MODULE_'.strtoupper($this->name);
 		$this->picto = 'bill';
 
