@@ -21,9 +21,9 @@ En un clic, le module enchaîne en transaction atomique :
 
 En cas d'erreur à n'importe quelle étape, la transaction est annulée (rollback). Aucune trace résiduelle.
 
-## Conditions d'activation du bouton
+## Conditions d'affichage du bouton
 
-Le bouton est toujours **visible** sur la fiche facture, mais **actif** uniquement si :
+Le bouton n'apparaît sur la fiche facture **que si toutes ces conditions sont réunies** :
 
 - La facture est de type **standard** (pas un avoir, acompte ou situation)
 - La facture est **validée** (pas brouillon)
@@ -31,8 +31,9 @@ Le bouton est toujours **visible** sur la fiche facture, mais **actif** uniqueme
 - **Aucun paiement** n'a été enregistré (même partiel)
 - **Aucun acompte** n'a été imputé
 - **Aucun avoir** n'a déjà été imputé
+- La facture n'est pas supprimable directement (sinon il suffit de cliquer sur Supprimer)
 
-Sinon, le bouton est grisé et une infobulle explique précisément pourquoi.
+Sinon, le bouton n'est simplement pas affiché : on reste sur le workflow natif Dolibarr pour ces cas particuliers.
 
 ## Sécurité et traçabilité
 
@@ -58,6 +59,14 @@ chown -R www-data:www-data lemonoups/
 ```
 
 Puis dans Dolibarr : **Accueil → Configuration → Modules → LemonOups → Activer**.
+
+## Page de configuration
+
+Le module n'a aucun paramètre à régler. La page **Configuration → Modules → LemonOups → icône roue crantée** affiche simplement :
+
+- Un bandeau **"Nouvelle version disponible"** si une release GitHub plus récente est publiée (check automatique, mis en cache 24 h, dégradé silencieusement si l'API GitHub est inaccessible)
+- Un rappel que le module fonctionne sans configuration
+- Un bloc **"À propos de Lemon"** (vitrine éditeur)
 
 ## Désinstallation
 
