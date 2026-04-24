@@ -19,3 +19,25 @@ LemonOupsReasonAlreadyPaid = Not possible: the invoice is already marked as paid
 LemonOupsReasonPartialPayment = Not possible: a payment has already been recorded, use the standard credit note workflow
 LemonOupsReasonDepositUsed = Not possible: a deposit has already been applied, use the standard credit note workflow
 LemonOupsReasonCreditNoteUsed = Not possible: a credit note has already been applied, use the standard credit note workflow
+
+# Admin / setup page
+LemonOupsSetup = LemonOups - Setup
+LemonOupsUpdateAvailable = New version available
+LemonOupsUpdateAvailableMsg = version %s is available on GitHub (installed version: %s).
+LemonOupsUpdateSeeRelease = See release notes
+LemonOupsNoConfigTitle = No configuration needed
+LemonOupsNoConfigDesc = LemonOups works out of the box: just enable the module. The "Cancel this invoice" button will appear automatically on validated invoices with strictly no payment.
+
+# About Lemon block (publisher showcase)
+LemonOupsAboutTitle = About Lemon
+LemonOupsAboutIntro = Lemon is a web and communication agency based in Clermont-Ferrand, France. We develop this module for free for the Dolibarr community, and we also support companies on their full online presence.
+LemonOupsAboutSvc1Title = Websites and applications
+LemonOupsAboutSvc1Desc = showcase sites, e-commerce, custom business applications
+LemonOupsAboutSvc2Title = Dolibarr experts
+LemonOupsAboutSvc2Desc = custom modules, integrations, training and support
+LemonOupsAboutSvc3Title = Communication and branding
+LemonOupsAboutSvc3Desc = visual identity, strategy, print, social networks
+LemonOupsAboutSvc4Title = Maker and fabrication
+LemonOupsAboutSvc4Desc = 3D printing, laser cutting, prototyping, IoT
+LemonOupsAboutCTA = Discover Lemon on hellolemon.fr
+LemonOupsAboutLocation = Clermont-Ferrand, France - since 2012

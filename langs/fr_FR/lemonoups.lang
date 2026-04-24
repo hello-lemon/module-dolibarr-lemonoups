@@ -22,3 +22,25 @@ LemonOupsReasonAlreadyPaid = Impossible : la facture est déjà marquée comme p
 LemonOupsReasonPartialPayment = Impossible : un paiement a déjà été enregistré, utilisez le workflow avoir classique
 LemonOupsReasonDepositUsed = Impossible : un acompte a déjà été imputé, utilisez le workflow avoir classique
 LemonOupsReasonCreditNoteUsed = Impossible : un avoir a déjà été imputé, utilisez le workflow avoir classique
+
+# Page admin / setup
+LemonOupsSetup = LemonOups - Configuration
+LemonOupsUpdateAvailable = Nouvelle version disponible
+LemonOupsUpdateAvailableMsg = la version %s est disponible sur GitHub (version installée : %s).
+LemonOupsUpdateSeeRelease = Voir les notes de version
+LemonOupsNoConfigTitle = Aucune configuration nécessaire
+LemonOupsNoConfigDesc = LemonOups fonctionne sans réglage : il suffit que le module soit activé. Le bouton "Annuler cette facture" apparaît automatiquement sur les factures validées strictement sans paiement.
+
+# Bloc "À propos de Lemon" (vitrine éditeur)
+LemonOupsAboutTitle = À propos de Lemon
+LemonOupsAboutIntro = Lemon est une agence web et communication à Clermont-Ferrand. Nous développons ce module gratuitement pour la communauté Dolibarr, et nous accompagnons aussi les entreprises sur l'ensemble de leur présence en ligne.
+LemonOupsAboutSvc1Title = Sites web et applications
+LemonOupsAboutSvc1Desc = sites vitrines, e-commerce, applications métier sur mesure
+LemonOupsAboutSvc2Title = Dolibarr expert
+LemonOupsAboutSvc2Desc = modules custom, intégrations, formation et support
+LemonOupsAboutSvc3Title = Communication et branding
+LemonOupsAboutSvc3Desc = identité visuelle, stratégie, print, réseaux sociaux
+LemonOupsAboutSvc4Title = Fabrication et maker
+LemonOupsAboutSvc4Desc = impression 3D, découpe laser, prototypage, objets connectés
+LemonOupsAboutCTA = Découvrir Lemon sur hellolemon.fr
+LemonOupsAboutLocation = Clermont-Ferrand, France - depuis 2012

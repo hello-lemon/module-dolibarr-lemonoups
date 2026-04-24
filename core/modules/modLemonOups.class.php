@@ -57,7 +57,7 @@ class modLemonOups extends DolibarrModules
 		);
 
 		$this->dirs = array();
-		$this->config_page_url = array();
+		$this->config_page_url = array("setup.php@lemonoups");
 		$this->hidden = false;
 		$this->depends = array();
 		$this->requiredby = array();
