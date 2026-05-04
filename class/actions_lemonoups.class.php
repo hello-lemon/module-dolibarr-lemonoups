@@ -206,55 +206,37 @@ class ActionsLemonoups
 		require_once DOL_DOCUMENT_ROOT.'/core/class/discount.class.php';
 
 		$db->begin();
-		$error = 0;
 
+		// Étapes séquentielles : la première qui échoue rollback la transaction.
 		$avoir = $this->createCreditNote($object, $user);
-		if ($avoir === null) {
-			$error++;
-		}
+		$failed = ($avoir === null);
 
-		if (!$error) {
-			$result = $avoir->validate($user);
-			if ($result <= 0) {
+		if (!$failed) {
+			$validate = $avoir->validate($user);
+			if ($validate <= 0) {
 				$this->logError('validate', $avoir);
-				$error++;
+				$failed = true;
 			}
 		}
-
-		if (!$error) {
-			$result = $this->convertToDiscounts($avoir, $user);
-			if ($result < 0) {
-				$error++;
-			}
+		if (!$failed && $this->convertToDiscounts($avoir, $user) < 0) {
+			$failed = true;
 		}
-
-		if (!$error) {
-			$result = $avoir->setPaid($user);
-			if ($result < 0) {
-				$this->logError('setPaid avoir', $avoir);
-				$error++;
-			}
+		if (!$failed && $avoir->setPaid($user) < 0) {
+			$this->logError('setPaid avoir', $avoir);
+			$failed = true;
 		}
-
-		if (!$error) {
-			$result = $this->applyDiscountsToInvoice($object, $avoir, $user);
-			if ($result < 0) {
-				$error++;
-			}
+		if (!$failed && $this->applyDiscountsToInvoice($object, $avoir, $user) < 0) {
+			$failed = true;
 		}
-
-		if (!$error) {
+		if (!$failed) {
 			$object->fetch($object->id);
-			if ($object->getRemainToPay(0) <= 0) {
-				$result = $object->setPaid($user);
-				if ($result < 0) {
-					$this->logError('setPaid facture', $object);
-					$error++;
-				}
+			if ($object->getRemainToPay(0) <= 0 && $object->setPaid($user) < 0) {
+				$this->logError('setPaid facture', $object);
+				$failed = true;
 			}
 		}
 
-		if ($error) {
+		if ($failed) {
 			$db->rollback();
 			setEventMessages($langs->trans('LemonOupsErrorAction'), null, 'errors');
 			$action = '';
