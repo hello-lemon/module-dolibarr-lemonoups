@@ -39,7 +39,7 @@ class modLemonOups extends DolibarrModules
 	public function __construct($db)
 	{
 		$this->db = $db;
-		$this->numero = 500260;
+		$this->numero = 210006;
 		$this->rights_class = 'lemonoups';
 		$this->family = "financial";
 		$this->module_position = '90';
