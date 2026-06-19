@@ -1,0 +1,23 @@
+{
+  "schema_version": "1",
+  "module_id": "lemonoups",
+  "name": "LemonOups",
+  "description": "Bouton « Émettre un avoir et solder » en un clic sur les factures client validées sans paiement.",
+  "author": "Lemon",
+  "url": "https://hellolemon.fr",
+  "license": "GPL-3.0-or-later",
+  "repository": "hello-lemon/module-dolibarr-lemonoups",
+  "branch": "main",
+  "dolibarr_module_id": 210006,
+  "compatibility": {
+    "2.x": {
+      "dolibarr_min": "22.0.0",
+      "dolibarr_max": "24.*",
+      "php_min": "7.4"
+    }
+  },
+  "dependencies": {
+    "modules": [],
+    "php_extensions": ["curl", "json"]
+  }
+}
