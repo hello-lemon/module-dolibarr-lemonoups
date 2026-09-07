@@ -33,7 +33,7 @@ LemonOupsNoConfigDesc = LemonOups fonctionne sans réglage : il suffit que le mo
 
 # Bloc "À propos de Lemon" (vitrine éditeur)
 LemonOupsAboutTitle = À propos de Lemon
-LemonOupsAboutIntro = Lemon est une agence web et communication à Clermont-Ferrand. Nous développons ce module gratuitement pour la communauté Dolibarr, et nous accompagnons aussi les entreprises sur l'ensemble de leur présence en ligne.
+LemonOupsAboutIntro = Lemon est une agence web et communication à Clermont-Ferrand. Nous développons des modules Dolibarr et nous accompagnons les entreprises sur l'ensemble de leur présence en ligne.
 LemonOupsAboutSvc1Title = Sites web et applications
 LemonOupsAboutSvc1Desc = sites vitrines, e-commerce, applications métier sur mesure
 LemonOupsAboutSvc2Title = Modules Dolibarr sur mesure

@@ -30,7 +30,7 @@ LemonOupsNoConfigDesc = LemonOups works out of the box: just enable the module. 
 
 # About Lemon block (publisher showcase)
 LemonOupsAboutTitle = About Lemon
-LemonOupsAboutIntro = Lemon is a web and communication agency based in Clermont-Ferrand, France. We develop this module for free for the Dolibarr community, and we also support companies on their full online presence.
+LemonOupsAboutIntro = Lemon is a web and communication agency based in Clermont-Ferrand, France. We build Dolibarr modules and support companies with their whole online presence.
 LemonOupsAboutSvc1Title = Websites and applications
 LemonOupsAboutSvc1Desc = showcase sites, e-commerce, custom business applications
 LemonOupsAboutSvc2Title = Custom Dolibarr modules
